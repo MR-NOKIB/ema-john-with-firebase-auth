@@ -1,0 +1,20 @@
+.cart{
+    background-color: #FFE0B3;
+    padding: 25px;
+    position: sticky;
+    top: 0;
+}
+.cart p{
+    font-size: 17px;
+}
+.grand-total{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+    color: #0E161A;
+}
