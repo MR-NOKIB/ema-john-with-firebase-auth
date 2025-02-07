@@ -13,7 +13,7 @@ const cartProductsLoader = async () => {
             savedCart.push(addedProducts);
         }
     }
-    console.log(savedCart);
+    // console.log(savedCart);
     return savedCart;
 }
 
