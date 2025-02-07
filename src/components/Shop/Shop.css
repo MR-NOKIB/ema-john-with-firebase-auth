@@ -1,6 +1,7 @@
 .shop-container{
     display: grid;
     grid-template-columns: 4fr 1fr;
+    height: 100vh;
 }
 .products-container{
     margin: 80px auto;
