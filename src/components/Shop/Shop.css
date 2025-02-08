@@ -12,3 +12,18 @@
 .cart-container{
     background-color: #FFE0B3;
 }
+.btn-proceed{
+    background: #ff9900;
+    display: flex;
+    width: 100%;
+    height: 56px;
+    font-size: 21px;
+    border-radius: 4px;
+    color: white;
+    justify-content: space-between;
+    margin: 10px auto;
+    align-items: center;
+}
+.link-decoration{
+    text-decoration: none;
+}

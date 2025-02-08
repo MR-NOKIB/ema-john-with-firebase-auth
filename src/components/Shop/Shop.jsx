@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([])
@@ -22,10 +23,10 @@ const Shop = () => {
             const addedProducts = products.find(product => product.id === id);
             if (addedProducts) {
                 // step 3: add quantity
-                addedProducts.quantity= storedCart[id];
+                addedProducts.quantity = storedCart[id];
                 // step 4: add the added(found) products to the saved cart
                 savedCart.push(addedProducts);
-            } 
+            }
         }
         // step 5: set the cart
         setCart(savedCart);
@@ -38,6 +39,10 @@ const Shop = () => {
         addToDb(product.id)
     }
 
+    const handleClearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
     return (
         <div className='shop-container'>
             <div className="products-container">
@@ -50,7 +55,14 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart
+                    cart={cart}
+                    handleClearCart={handleClearCart}
+                >
+                    <Link className='link-decoration' to='/orders'>
+                        <button className='btn-proceed'>Review Order</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
