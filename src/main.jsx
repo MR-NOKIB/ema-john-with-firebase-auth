@@ -11,8 +11,11 @@ import Home from './components/Layout/Home.jsx';
 import Orders from './components/Orders/Orders.jsx';
 import Inventory from './components/Inventory/Inventory.jsx';
 import Login from './components/Login/Login.jsx';
+import SignUp from './components/SignUp/SignUp.jsx';
 import cartProductsLoader from './Loaders/CartProductLoaders.js';
 import ProcedCheckout from './components/ProcedCheckout/ProcedCheckout.jsx';
+import AuthProvider from './components/provider/AuthProvider.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,23 +33,28 @@ const router = createBrowserRouter([
       },
       {
         path: 'checkout',
-        element: <ProcedCheckout></ProcedCheckout>
+        element: <PrivateRoute><ProcedCheckout></ProcedCheckout></PrivateRoute>
       },
       {
         path: 'inventory',
-        element: <Inventory></Inventory>
+        element: <PrivateRoute><Inventory></Inventory></PrivateRoute>
       },
       {
         path: 'login',
         element: <Login></Login>
+      },
+      {
+        path: "signup",
+        element: <SignUp></SignUp>
       }
-      ,
     ]
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
