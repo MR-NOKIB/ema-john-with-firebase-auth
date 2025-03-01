@@ -1,7 +1,7 @@
 .shop-container{
     display: grid;
     grid-template-columns: 4fr 1fr;
-    height: 100vh;
+    height: 100%;
 }
 .products-container{
     margin: 80px auto;
@@ -26,4 +26,13 @@
 }
 .link-decoration{
     text-decoration: none;
+}
+
+.pagination{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pagination .selected{
+    background-color: #ff9900;
 }
